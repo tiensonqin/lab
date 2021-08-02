@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <title>Logseq releases download (monthly)</title>
+    <style>
+      #chart {
+          width: 800px;
+          margin: 0 auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="chart"></div>
+  </body>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/frappe-charts/1.6.2/frappe-charts.min.umd.js"></script>
+  <script>
+    const data = {
+      labels: ["2020-10",
+               "2020-12",
+               "2021-01",
+               "2021-02",
+               "2021-03",
+               "2021-04",
+               "2021-05",
+               "2021-06",
+               "2021-07"
+              ],
+      datasets: [
+        {
+          name: "Downloads", chartType: "bar",
+          values: [9,
+                   41,
+                   1363,
+                   5654,
+                   5598,
+                   37562,
+                   14422,
+                   124086,
+                   114299]
+        }
+      ]
+    }
+
+    const chart = new frappe.Chart("#chart", {  // or a DOM element,
+      // new Chart() in case of ES6 module with above usage
+      title: "Logseq desktop app releases download(monthly)",
+      data: data,
+      type: 'axis-mixed', // or 'bar', 'line', 'scatter', 'pie', 'percentage'
+      height: 250,
+      colors: ['#7cd6fd', '#743ee2']
+    })
+  </script>
+</html>
